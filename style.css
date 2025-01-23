@@ -21,20 +21,20 @@
     justify-content: center;
     align-items: center;
     /* flex-direction: column; */
-    /* my first change */
     background-color: aqua;
     }
 
 
-.leftitems{
+/* .leftitems{
     
     /* margin-left: 80px; */
-}
+/* }
 
 .rightitems{
     
     /* margin-right: 80px; */
-}
+/* } */
+
 .nav{
     
     /* width: 45%; */
