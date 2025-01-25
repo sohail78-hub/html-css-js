@@ -38,18 +38,18 @@
 .nav{
     
     /* width: 45%; */
-    height: 70px;
-    background-color: aqua;
+    height: 80px;
     display: flex;
-    /* justify-content:end; */
+    /* justify-content:center; */
 }
 .nav li{
     
     list-style: none;
     margin: 15px;
+    padding: 8px;
     background-color: black;
     color: white;
-    padding: 8px;
+    
 }
 
 .heading-parent{
@@ -73,7 +73,7 @@ p{
     background-color: aqua;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 10px) {
  .navbar {
       /* background-color: red; */
       display: none;
