@@ -1,0 +1,99 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.mainbox {
+    display: flex;
+    width: 90vw;
+    height: 90vh;
+    }
+
+.container{
+    Width:300px;
+    height: 200px;
+    border: 1px solid black;
+    position:relative;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    align-content: center;
+    text-shadow: 1px 1px 2px rgb(248, 252, 5), 3px 3px 5px brown;
+    font-size: 2em;
+    animation:  30s ease-in-out 1s infinite alternate none running abc;
+    /* animation: 10s ease-in-out 0s infinite alternate none running circlebox; */
+}
+
+@keyframes abc {
+    10% {
+        top:10%;
+        left:55%;
+        background: linear-gradient(rgb(244,255,144),rgb(90,2,14),white,red);
+        color: red;
+        }
+    
+    20% {
+        top: 55%;
+        left: 30%;
+        color: rgb(39, 3, 3);
+        background: linear-gradient(rgb(62, 169, 211),rgb(104, 1, 221),rgb(129, 109, 109),rgb(0, 0, 0));
+        }
+    
+    30% 
+        {
+            top:79%;
+            left:25%;
+            color: rgb(0, 88, 19);
+            background: linear-gradient(rgb(69, 3, 131),rgb(194, 174, 177),rgb(194, 248, 0),rgb(117, 2, 128));
+        }
+    
+    40% {
+        top: 30%;
+        left: 11%;
+        color: rgb(71, 30, 2);
+        background: linear-gradient(rgb(255, 153, 19),rgb(196, 174, 206),rgb(31, 6, 121),rgb(40, 69, 148));
+        }
+    
+    50% {
+        top: 69%;
+        left: 70%;
+        color: rgb(10, 36, 56);
+        background: linear-gradient(rgb(12, 94, 12),rgb(172, 53, 162),white,rgb(38, 60, 255));
+        }
+    
+    60% {
+        top: 5%;
+        left: 10%;
+        color: rgb(36, 6, 75);
+        background: linear-gradient(rgb(244,255,144),rgb(90,2,14),white,red);
+        }
+    
+    70% {
+        top: 45%;
+        left: 12%;
+        color: rgb(115, 235, 143);
+        background: linear-gradient(rgb(62, 169, 211),rgb(104, 1, 221),rgb(129, 109, 109),rgb(0, 0, 0));
+        }
+    
+    80% {
+        top: 5%;
+        left: 50%;
+        color: rgb(20, 0, 136);
+        background: linear-gradient(rgb(69, 3, 131),rgb(194, 174, 177),rgb(194, 248, 0),rgb(117, 2, 128));
+        }
+    
+    90% {
+        top: 20%;
+        left: 65%;
+        color: rgb(134, 219, 253);
+        background: linear-gradient(rgb(255, 153, 19),rgb(196, 174, 206),rgb(31, 6, 121),rgb(40, 69, 148));
+        }
+    
+    100% {
+        top: 66%;
+        left: 15%;
+        background: linear-gradient(rgb(12, 94, 12),rgb(172, 53, 162),white,rgb(38, 60, 255));
+        color: rgb(244, 255, 144);
+                 /* background-color: rgb(90, 2, 14); */
+        }
+    
+}

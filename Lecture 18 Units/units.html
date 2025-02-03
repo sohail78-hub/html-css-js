@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://w7.pngwing.com/pngs/672/907/png-transparent-favicon-buggi-trademark-logo-circle.png" type="x-icon">
+    <title>About Units</title>
+    <style>
+        .parent {
+            display: flex;
+            font-size: 1em;
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            justify-content: center;
+            align-items: flex-end;
+            background-color: rgb(15, 94, 240);
+        }  
+
+        .child {
+            display: flex;
+            margin: 0px;
+            /* em works as a multiplier of the parent element font-size */
+            padding: 0em;
+            font-size: 2em;
+            background-color: rgb(15, 225, 240);
+            border: 1px solid black;
+            width: 50%;
+            height: 30vh;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        p {
+            display: flex;
+            margin: 0px;
+            /* em works as a multiplier of the parent element font-size */
+            padding: 1.5em;
+            background-color: hsl(340, 89%, 50%);
+            border: 1px solid black;
+            width: 50%;
+            height: 10vh;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+    </style> 
+</head>
+
+<body>
+    <div class="parent" style="color: white">
+        Parent Paragraph
+        <div class="child">
+            <p> Child Paragraph </p>
+        </div>
+    </div>
+</body>
+</html>

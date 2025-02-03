@@ -1,0 +1,50 @@
+.container{
+    height: 500px;
+    background-color: beige;
+    border: 5px solid black;
+    margin: 2px;
+    display: flex;
+    /* flex direction by default is row */
+    flex-direction: column;
+    justify-content: start;
+    align-items:start;
+    
+
+}
+
+.box {
+    
+    height: 100px;
+    width: 100px;
+    border: 1px solid red;
+    margin: 2px;
+    
+}
+
+#box1 {
+    background-color: aqua;
+    /* align-self: flex-end; */
+    align-self: center;
+}
+
+#box2 {
+    /* flex item properties */
+    /* order: 1; */
+    order: 1;
+    /* flex-shrink: 4; */
+        background-color: blue;
+        /* flex-grow: 1; */
+    }   
+
+#box3 {
+    background-color: orange;
+    order: 0;
+    /* flex-grow: 5; */
+    width: 300px; /* flex will ignore main axis and fix the width */
+}
+
+#box4 {
+    order: 2;
+    background-color: brown;
+    flex-basis: 300px; /*flex-basis works only on the main axis. For example, if you're in flex-direction: column, the width property would be needed for sizing flex items horizontally. *
+}

@@ -1,0 +1,122 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    /* box-sizing will adjust padding & margine as per defined user size */
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: beige;
+    border: 5px solid black;
+}
+
+.box1 {
+    width: 250px;
+    height: 50px;
+    background-color: blue;
+    border: 3px solid red;
+    border-radius: 15px;
+    /* box-shadow: 3px 3px 4px greenyellow; */
+    position: relative;
+    /* animation-name: movement2;
+    animation-duration: 4s;
+    /* animation-iteration-count: infinite; */
+    animation-delay: 1s;
+    animation-timing-function:linear;
+    /* animation-direction:alternate; */
+    /* animation-fill-mode: both; */
+    
+    /* @keyframes duration | easing-function | delay |
+iteration-count | direction | fill-mode | play-state | name */
+animation: 4s linear 0s infinite alternate both running leftbox;
+}
+
+@keyframes leftbox {
+    from {
+        top: 0px;
+        left: 0px;
+    }
+    to {
+        top:0px;
+        left:500px;
+    }
+}
+
+.box2 {
+    width: 250px;
+    height: 50px;
+    background-color: blue;
+    border: 3px solid red;
+    border-radius: 15px;
+    /* box-shadow: 3px 3px 4px greenyellow; */
+    position: relative;
+    /* animation-name: movement2;
+    animation-duration: 4s;
+    /* animation-iteration-count: infinite; */
+    /* animation-delay: 1s;
+    animation-timing-function:linear; */
+    /* animation-direction:alternate; */
+    /* animation-fill-mode: both; */
+    
+    /* @keyframes duration | easing-function | delay |
+iteration-count | direction | fill-mode | play-state | name */
+animation: 4s linear 0s infinite alternate both running rightbox;
+}
+
+@keyframes rightbox {
+    from {
+        top: 400px;
+        left: 500px;
+    }
+    to {
+        top:400px;
+        left:0px;
+    }
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    border: 3px solid red;
+    border-radius: 50px;
+    /* box-shadow: 3px 3px 4px greenyellow; */
+    position: relative;
+    /* animation-name: movement2;
+    animation-duration: 4s;
+    /* animation-iteration-count: infinite; */
+    /* animation-delay: 1s;
+    animation-timing-function:linear; */
+    /* animation-direction:alternate; */
+    /* animation-fill-mode: both; */
+    top: 30%;
+    left: 40%;
+    /* @keyframes duration | easing-function | delay |
+iteration-count | direction | fill-mode | play-state | name */
+animation: 10s ease-in-out 0s infinite alternate none running circlebox;
+}
+
+@keyframes circlebox {
+    25% {
+        top:1%;
+        left: 5%;
+        background-color: aqua;
+        }
+    50% {
+        top:5%;
+        left: 90%;
+        background-color: blueviolet;
+    }
+    75%{
+        top:65%;
+        left: 10%;
+        background-color: brown;
+     }
+    100% {
+        top:45%;
+        left: 40%;
+    }
+
+}

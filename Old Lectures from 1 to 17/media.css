@@ -1,0 +1,21 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    h3 {
+        color: #a75110;
+        font-size: 1rem;
+        };
+}
+
+.tcell {
+    justify-content: start;
+    background-color: black;
+    vertical-align: top;
+}
+
+.box {
+    display:flexbox;
+    width: 50vh;
+    height: 25vh;
+}

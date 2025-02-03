@@ -1,0 +1,41 @@
+html {
+    background-color: #43394a;
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    /* text-rendering: optimizeLegibility; */
+    overflow: hidden;
+  }
+
+  .box h3 {
+    color: white;
+    position: relative;
+    top: 40%;
+    left: 25%;
+  }
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(2, 2, 94);
+    border-radius: 10%;
+    box-shadow: 3px 3px 3px rgb(6, 0, 22);
+    
+    /* transition-property: all;
+    transition-duration: 1s;
+    transition-delay: 0s;
+    transition-timing-function: ease-in-out; */
+    /* transition: all 1s ease-in-out; */
+    transition: width 2s, height 3s, transform 2s; 
+}
+
+
+.box:hover {
+    width: 300px;
+    height: 300px;
+    /* opacity: 70%; */
+    background-color: brown;
+    transform: rotate(180deg);
+          
+   }

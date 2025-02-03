@@ -1,0 +1,49 @@
+      
+.container {
+    margin: 0px;
+    height: 1000px;
+    border: 0.5px solid rgb(219, 20, 20);
+    background-color: lightgray;
+}
+
+.box {
+    height: 3000px;
+    border: 1px solid rgb(39, 116, 8);
+    background-color: lightcoral;
+}
+
+img {
+    margin: 2px;
+    border: 0.5px solid blue;
+    height: 200px;
+    width: 200px;
+}
+
+.image1 {
+   /* it leave its place & possition keep "fixed" as per the parent container */
+   /* Generaly it will use for Overlaping */
+    position: absolute;
+    top: 100px;
+}
+.image2 {
+    /* it keep its place and move as per req in container */
+    position: relative;
+    top: 50px;
+    left: 0px;
+}
+
+
+.image3 {
+    /* it will fix as per the browser window */
+    /* just like Chatbot */
+    position: fixed;
+    top: 200px;
+    left: 400px;
+}
+
+.image4 {
+    /* it will be fix after other block elements & as per the parent container */
+    position: sticky;
+    top: 200px;
+    left: 300px;
+}
