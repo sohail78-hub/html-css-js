@@ -1,0 +1,28 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+.container {
+    width: 100%;
+    height: 100%;
+    padding: 4rem;
+    display: grid;
+    gap: 1rem;
+    background-color: rgba(131, 119, 119, 0.651);
+    /* grid-template-columns: repeat(3,1fr); */
+
+    /*Create AutoCoumns and range is minimum column size will be 150px and max 500px )*/
+    /* grid-template-columns: repeat(auto-fit, minmax(100px,200px)); */
+    grid-template-columns: repeat(auto-fill,minmax(25px, 200px)); /* create column automaticaly fit in screen and range between 25px min to 200px max) */
+}
+    .item {
+    border: 5px soild black;
+    background-color: rgb(63, 63, 247);
+    color: white;
+}

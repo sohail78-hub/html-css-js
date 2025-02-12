@@ -13,18 +13,17 @@ body {
     width: 100vw;
     background-color: rgb(59,57,57);
     display: grid;
-    padding: 4rem;
+    padding: 2rem;
     /* row-gap: 1rem; */
     /* column-gap: 1rem; */
     gap: 1rem; /*it will work row & column 1rem */
-    /* Template of Two Rows and Three Columns by below method */
-    /* grid-template-rows: 100px 100px; */
-    /* grid-template-rows: 1fr 1fr; 
-    fr means fraction or ratio and can be write as per following*/ 
+    /* grid-template-rows: 100px 100px; */ /*it means two rows with 100px of height */
+    /* grid-template-rows: 1fr 1fr; it means two rows equal 1 fraction size */
+    /* fr means fraction or ratio and can be write as per following*/ 
     
-    /* grid-template-columns: 100px 100px 100px; */
-    grid-template-columns: repeat(1,1fr);
-    grid-template-rows: repeat(6, 1fr);
+    /* grid-template-columns: 100px 100px 100px; */ /* (it means three columns with 100px size) */
+    /* grid-template-columns: repeat(1,1fr); */ /* it means one column with 1 fraction size */
+    grid-template-rows: repeat(6, 1fr); /* repeat 6 rows with 1fraction size */
 }
 
 .item{
@@ -34,18 +33,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 
 @media (min-width: 700px){
 
     .container {
-        grid-template-rows: repeat(4, 1fr);
+        grid-template-rows: repeat(5, 1fr);
         /* grid-template-columns: 100px 100px 100px; */
         grid-template-columns: repeat(3,1fr);
     }
     .header {
+        /* it stratch Header cell/class from column line 1 till column line 4 */
         grid-column-start: 1;
         grid-column-end: 4;
     }
@@ -56,9 +56,17 @@ body {
     .leftside {
         grid-row-start: 2;
         grid-row-end: 4;
-    }
+        }
     .content1 {
         grid-column-start: 2;
+        grid-column-end: 4;
+    }
+    .content2 {
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+    .content3 {
+        grid-column-start: 1;
         grid-column-end: 4;
     }
 }
