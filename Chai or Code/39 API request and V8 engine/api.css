@@ -1,0 +1,47 @@
+
+.tbl1 th, .tbl1 td, .tbl2 th, .tbl2 td, .tbl3 th, .tbl3 td {
+    
+    border: 1px solid black;
+    border-radius: 10px;
+   
+    /* border-collapse: collapse; */
+    
+}
+
+.tbl1 td, .tbl2 td, .tbl3 td {
+    padding-left: 15px;
+}
+
+.tbl1 th{
+    color:rgb(88, 21, 79);
+    background-color: rgb(248, 206, 154);
+    text-shadow: 1px 1px 1px grey;
+    
+}
+
+.tbl2 th {
+    color:rgb(56, 9, 100);
+    background-color: rgb(208, 216, 171);
+    text-shadow: 1px 1px 1px grey;
+}
+
+.tbl3 th {
+    color:rgb(8, 33, 65);
+    background-color: rgb(190, 230, 233);
+    text-shadow: 1px 1px 1px grey;
+}
+.tbl1 {
+    width : 50%;
+    margin-bottom: 1rem;
+}
+
+.tbl2 {
+    width : 60%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.tbl3 {
+    width : 60%;
+    margin-top: 1rem;
+}

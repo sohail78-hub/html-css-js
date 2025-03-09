@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P-Bazar</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lateef&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, #ff9800, #ff5722);
+            padding: 15px;
+            color: white;
+        }
+
+        .navbar img {
+            height: 40px;
+        }
+
+        .navbar-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .navbar-icons img {
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .language-container {
+            margin-left: auto;
+        }
+
+        .slider-container {
+            width: 100%;
+            overflow: hidden;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .slider-container h2 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 10px;
+            width: 100%;
+            justify-content: flex-start;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            flex: 0 0 auto;
+            width: 180px;
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            max-height: 150px;
+            object-fit:contain;
+            border-radius: 5px;
+        }
+        .product-info {  /*   */
+            
+            margin-top:auto;
+            padding: 5px 0;
+        }
+        
+      
+
+        .category-container {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin: 20px;
+            width: calc(100% - 40px);
+        }
+
+        .category-card {
+            display: flex;
+            flex-direction: column;
+            flex: 0 0 auto;
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        
+
+        .category-card img {
+            width: 100%;
+            height: auto;
+            max-height: 150px;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+
+        .category-info {
+            margin-top:auto;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <img src="p-bazar-logo.png" alt="P-Bazar Logo">
+            
+            <!-- Navigation Menu -->
+            <nav>
+                <ul>
+                    <li id="menu-home">Home</li>
+                    <li id="menu-shop">Shop</li>
+                    <li id="menu-categories">Categories</li>
+                    <li id="menu-about">About Us</li>
+                    <li id="menu-contact">Contact</li>
+                </ul>
+            </nav>
+        
+            <div class="navbar-icons">
+                <img src="search-icon.png" alt="Search">
+                <img src="cart-icon.png" alt="Cart">
+                <img src="login-icon.png" alt="Login">
+            </div>
+        
+            <div class="language-container">
+                <select id="language-select">
+                    <option value="en">English</option>
+                    <option value="ur">اردو</option>
+                    <option value="sd">سنڌي</option>
+                </select>
+            </div>
+        </div>
+        
+
+    </header>
+
+    <div class="category-container" id="categories"></div>
+
+    <div class="slider-container">
+        <h2 id="slider-sales-title">On Sales Now</h2>
+        <div class="slider" id="sales-products"></div>
+    </div>
+    
+    <div class="slider-container">
+        <h2 id="slider-arrivals-title">New Arrivals</h2>
+        <div class="slider" id="arrivals-products"></div>
+    </div>
+    
+    <div class="slider-container">
+        <h2 id="slider-justforyou-title">Just for You</h2>
+        <div class="slider" id="justforyou-products"></div>
+    </div>
+
+    <footer>
+        <p id="footer-text">&copy; 2025 P-Bazar. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const uiTranslations = {
+    en: {
+        home: "Home",
+        shop: "Shop",
+        categories: "Categories",
+        about: "About Us",
+        contact: "Contact",
+        sales: "On Sales Now",
+        arrivals: "New Arrivals",
+        justForYou: "Just for You",
+        footer: "&copy; 2025 P-Bazar. All rights reserved."
+    },
+    ur: {
+        home: "ہوم",
+        shop: "خریداری",
+        categories: "اقسام",
+        about: "ہمارے بارے میں",
+        contact: "رابطہ کریں",
+        sales: "ابھی فروخت پر",
+        arrivals: "نئی آمد",
+        justForYou: "صرف آپ کے لئے",
+        footer: "&copy; 2025 پی بازار. جملہ حقوق محفوظ ہیں۔"
+    },
+    sd: {
+        home: "ھوم",
+        shop: "خريداري",
+        categories: "زمرا",
+        about: "اسان بابت",
+        contact: "رابطي ڪريو",
+        sales: "سيل تي",
+        arrivals: "نئون پهچ",
+        justForYou: "صرف توهان لاءِ",
+        footer: "&copy; 2025 پي بازار. سڀ حق محفوظ آھن."
+    }
+};
+
+
+function updateUI(lang) {
+    document.getElementById('menu-home').innerText = uiTranslations[lang].home;
+    document.getElementById('menu-shop').innerText = uiTranslations[lang].shop;
+    document.getElementById('menu-categories').innerText = uiTranslations[lang].categories;
+    document.getElementById('menu-about').innerText = uiTranslations[lang].about;
+    document.getElementById('menu-contact').innerText = uiTranslations[lang].contact;
+
+    document.getElementById('sales-title').innerText = uiTranslations[lang].sales;
+    document.getElementById('arrivals-title').innerText = uiTranslations[lang].arrivals;
+    document.getElementById('justForYou-title').innerText = uiTranslations[lang].justForYou;
+
+    document.getElementById('footer-text').innerHTML = uiTranslations[lang].footer;
+}
+
+
+const productData = [
+    { id: 1, en: 'Johnson Shampoo', ur: 'جانسن شیمپو', sd: 'جانسن شامپو' },
+    { id: 2, en: 'Water Can', ur: 'پانی کا کین', sd: 'پاڻي جو ڪين' },
+    { id: 3, en: 'Entamizol DS Tablet', ur: 'انٹامیزول ڈی ایس ٹیبلٹ', sd: 'اينٽاميزول ڊي ايس ٽيبلٽ' },
+    { id: 4, en: 'Knives', ur: 'چاقو', sd: 'چاقو' },
+    { id: 5, en: 'Cricket Bat', ur: 'کرکٹ بیٹ', sd: 'ڪرڪيٽ بيٽ' },
+    { id: 6, en: 'Lipstick', ur: 'لپ اسٹک', sd: 'لپ اسٽڪ' },
+    { id: 7, en: 'MotorBike', ur: 'موٹر بائیک', sd: 'موٽر بائيڪ' },
+    { id: 8, en: 'Table Lamp', ur: 'ٹیبل لیمپ', sd: 'ٽيبل ليمپ' },
+    { id: 9, en: 'Toy Car', ur: 'کھلونا کار', sd: 'رانديڪو ڪار' },
+    { id: 10, en: 'Office Chair', ur: 'دفتر کی کرسی', sd: 'آفيس ڪرسي' }
+];
+
+
+
+       function generateProducts(containerId, currency, lang) {
+    let container = document.getElementById(containerId);
+    container.innerHTML = '';
+    productData.forEach(product => {
+        let productCard = document.createElement('div');
+        productCard.className = 'product-card';
+        productCard.innerHTML = `
+            <img src='product-images/product${product.id}.jpg' alt='${product[lang]}'>
+            <div class='product-info'>
+                <p>${product[lang]}</p>
+                <p>${currency} ${(Math.floor(Math.random() * 5000) + 500).toLocaleString()}</p>
+
+            </div>
+        `;
+        container.appendChild(productCard);
+    });
+}
+
+
+        const categoryData = [
+    { key: 'electronics', en: 'Electronics', ur: 'الیکٹرانکس', sd: 'اليڪٽرانڪس' },
+    { key: 'fashion', en: 'Fashion', ur: 'فیشن', sd: 'فئشن' },
+    { key: 'home', en: 'Home', ur: 'گھر', sd: 'گهر' },
+    { key: 'sports', en: 'Sports', ur: 'کھیل', sd: 'راند' },
+    { key: 'books', en: 'Books', ur: 'کتابیں', sd: 'ڪتاب' },
+    { key: 'toys', en: 'Toys', ur: 'کھلونے', sd: 'رانديڪا' }
+];
+
+function generateCategories(lang) {
+    let container = document.getElementById('categories');
+    container.innerHTML = '';
+    categoryData.forEach(category => {
+        let categoryCard = document.createElement('div');
+        categoryCard.className = 'category-card';
+        categoryCard.innerHTML = `
+            <img src='category-images/${category.key}.jpg' alt='${category[lang]}'>
+            <div class='category-info'>
+                <p>${category[lang]}</p>
+            </div>
+        `;
+        categoryCard.onclick = () => alert('Showing ' + category[lang] + ' products');
+        container.appendChild(categoryCard);
+    });
+}
+
+
+function loadProducts(currency, lang) {
+    generateProducts('sales-products', currency, lang);
+    generateProducts('arrivals-products', currency, lang);
+    generateProducts('justforyou-products', currency, lang);
+    generateCategories(lang);
+}
+
+document.getElementById('language-select').addEventListener('change', function () {
+    const lang = this.value;
+
+    const translations = {
+        en: { 
+            currency: 'Rs.', 
+            footer: '&copy; 2025 P-Bazar. All rights reserved.', 
+            "menu-home": "Home",
+            "menu-shop": "Shop",
+            "menu-categories": "Categories",
+            "menu-about": "About Us",
+            "menu-contact": "Contact",
+            "slider-sales": "On Sales Now",
+            "slider-arrivals": "New Arrivals",
+            "slider-justforyou": "Just for You",
+            font: "Arial, sans-serif"  // English default font
+        },
+        ur: { 
+            currency: 'روپے', 
+            footer: '&copy; 2025 پی بازار. جملہ حقوق محفوظ ہیں۔', 
+            "menu-home": "ہوم",
+            "menu-shop": "خریداری",
+            "menu-categories": "اقسام",
+            "menu-about": "ہمارے بارے میں",
+            "menu-contact": "رابطہ کریں",
+            "slider-sales": "ابھی سیل میں",
+            "slider-arrivals": "نئے آنے والے",
+            "slider-justforyou": "صرف آپ کے لیے",
+            font: "'Noto Nastaliq Urdu', serif"  // Urdu Nastaliq Font
+        },
+        sd: { 
+            currency: 'روپيا', 
+            footer: '&copy; 2025 پي بازار. سڀ حق محفوظ آھن.', 
+            "menu-home": "گھر",
+            "menu-shop": "خريداري",
+            "menu-categories": "ڪيٽيگريون",
+            "menu-about": "اسان بابت",
+            "menu-contact": "رابطو",
+            "slider-sales": "هاڻ وڪرو تي",
+            "slider-arrivals": "نئون پهتل",
+            "slider-justforyou": "صرف توهان لاءِ",
+            font: "'Lateef', serif",  // Sindhi Lateef Font
+            fontSize: "24px" // ✅ Sindhi کا Font Size بڑا کر دیا ہے۔
+        }
+    };
+
+   // Update Footer Text
+   document.getElementById('footer-text').innerHTML = translations[lang].footer;
+
+// Update Menu Text
+document.getElementById('menu-home').innerText = translations[lang]["menu-home"];
+document.getElementById('menu-shop').innerText = translations[lang]["menu-shop"];
+document.getElementById('menu-categories').innerText = translations[lang]["menu-categories"];
+document.getElementById('menu-about').innerText = translations[lang]["menu-about"];
+document.getElementById('menu-contact').innerText = translations[lang]["menu-contact"];
+
+// Update Slider Titles (h2)
+document.getElementById('slider-sales-title').innerText = translations[lang]["slider-sales"];
+document.getElementById('slider-arrivals-title').innerText = translations[lang]["slider-arrivals"];
+document.getElementById('slider-justforyou-title').innerText = translations[lang]["slider-justforyou"];
+
+// Apply Language-Specific Font & Font Size
+document.body.style.fontFamily = translations[lang].font;
+document.body.style.fontSize = translations[lang].fontSize;
+
+// Load Products & Categories
+loadProducts(translations[lang].currency, lang);
+});
+
+window.onload = function () {
+loadProducts('Rs.', 'en');
+};
+    </script>
+</body>
+
+</html>

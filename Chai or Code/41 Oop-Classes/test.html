@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider Management Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .dashboard {
+      width: 90%;
+      margin: 20px auto;
+      max-width: 1200px;
+    }
+    form {
+      margin-bottom: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background: #f9f9f9;
+    }
+    form input, form select, form button, form textarea {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .slider-preview {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <h1>Slider Management Dashboard</h1>
+    <!-- Form to Add/Edit Cards -->
+    <form id="postForm">
+      <h2>Create/Edit Card</h2>
+      <input type="hidden" id="postId" value="">
+      <label for="title">Card Title</label>
+      <input type="text" id="title" placeholder="Enter card title" required>
+      <label for="description">Card Description</label>
+      <textarea id="description" rows="3" placeholder="Enter card description" required></textarea>
+      <label for="imageUrl">Image URL</label>
+      <input type="url" id="imageUrl" placeholder="Enter image URL">
+      <button type="submit">Save Card</button>
+    </form>
+
+    <!-- Slider Properties -->
+    <form id="sliderSettingsForm">
+      <h2>Slider Properties</h2>
+      <label for="sliderSpeed">Slider Speed (ms)</label>
+      <input type="number" id="sliderSpeed" value="3000" min="1000" required>
+      <label for="animationType">Animation Type</label>
+      <select id="animationType">
+        <option value="slide">Slide</option>
+        <option value="fade">Fade</option>
+      </select>
+      <button type="submit">Save Settings</button>
+    </form>
+
+    <!-- Preview Slider -->
+    <div class="slider-preview">
+      <h2>Slider Preview</h2>
+      <div id="sliderContainer"></div>
+    </div>
+  </div>
+
+  <script>
+    // Mock Database
+    const posts = [];
+    const sliderSettings = {
+      speed: 3000,
+      animation: 'slide',
+    };
+
+    // Handle Post Form Submission
+    document.getElementById('postForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const id = document.getElementById('postId').value;
+      const title = document.getElementById('title').value;
+      const description = document.getElementById('description').value;
+      const imageUrl = document.getElementById('imageUrl').value;
+
+      if (id) {
+        // Edit Post
+        const index = posts.findIndex((post) => post.id === id);
+        if (index !== -1) {
+          posts[index] = { id, title, description, imageUrl };
+        }
+      } else {
+        // Add New Post
+        posts.push({
+          id: Date.now().toString(),
+          title,
+          description,
+          imageUrl,
+        });
+      }
+      renderSlider();
+      e.target.reset();
+    });
+
+    // Handle Slider Settings Form Submission
+    document.getElementById('sliderSettingsForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      sliderSettings.speed = document.getElementById('sliderSpeed').value;
+      sliderSettings.animation = document.getElementById('animationType').value;
+      renderSlider();
+    });
+
+    // Render Slider
+    function renderSlider() {
+      const sliderContainer = document.getElementById('sliderContainer');
+      sliderContainer.innerHTML = '';
+      posts.forEach((post) => {
+        const card = document.createElement('div');
+        card.style.border = '1px solid #ddd';
+        card.style.padding = '10px';
+        card.style.margin = '10px';
+        card.style.borderRadius = '5px';
+        card.innerHTML = `
+          <h3>${post.title}</h3>
+          <p>${post.description}</p>
+          <img src="${post.imageUrl}" alt="${post.title}" style="max-width: 100%; border-radius: 5px;">
+        `;
+        sliderContainer.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timeOut | Interval functions</title>
+<style>
+    #start, #stop {
+        background-color: rgb(98, 21, 199);
+        box-shadow: 1px 1px 2px 2px goldenrod;
+        color: white;
+    }
+</style>
+</head>
+
+<body>
+<h2> Code Area </h2>
+<button id="start"> Start </button>
+<button id="stop"> Stop </button>
+    
+</body>
+<script>
+// All following function are windows object function, not JS function
+//         setTimeout();
+//         setInterval();
+//         clearInterval();
+//         clearTimeout();
+
+// // following will print "sohail" every two sec with current time
+// setInterval(function(){
+//     console.log("sohail", Date.now());
+// },2000);erval ID store karne ke liye variable
+
+// Starting Interval by following
+
+let intervalId; // Declare variable globally
+
+document.querySelector('#start').addEventListener('click', function() {
+    if (!intervalId) { // Agar already run nahi ho raha, tabhi start karein
+        intervalId = setInterval(() => {
+            console.log("Pi to Pi", Date.now());
+        }, 2000);
+    }
+});
+
+document.querySelector('#stop').addEventListener('click', function() {
+    clearInterval(intervalId); // Interval stop karein
+    intervalId = null; // ID ko null kar dein taake dobara start ho sake
+});
+
+
+</script>
+</html>

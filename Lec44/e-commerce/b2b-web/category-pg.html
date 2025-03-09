@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Dashboard - Categories</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="category-pg.css">
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-white">
+    <!-- Main content for Categories page -->
+    <div class="container px-4 mx-auto">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold text-gray-800 dark:text-white">Categories</h1>
+            <button class="btn-primary text-white px-4 py-2 rounded-lg" id="add-category-btn">
+                <i class="fas fa-plus mr-2"></i> Add Category
+            </button>
+        </div>
+        
+        <!-- Filters and Search -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="relative">
+                        <input type="text" placeholder="Search categories..." class="w-full pl-10 pr-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary text-base">
+                        <i class="fas fa-search absolute left-3 top-3 text-gray-500 dark:text-gray-400"></i>
+                    </div>
+                </div>
+                <div>
+                    <select class="w-full bg-gray-100 dark:bg-gray-700 border-0 rounded-lg px-3 py-2 text-gray-800 dark:text-white text-base focus:outline-none focus:ring-2 focus:ring-primary">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Tree -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+            <!-- Category Tree Panel -->
+            <div class="card bg-white dark:bg-gray-800 rounded-lg p-4 shadow">
+                <h2 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Category Structure</h2>
+                <div class="category-tree">
+                    <ul class="category-tree-list">
+                        <li class="category-tree-item">
+                            <div class="category-tree-content flex justify-between items-center py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <div class="flex items-center">
+                                    <i class="fas fa-caret-right mr-2 toggle-icon"></i>
+                                    <span class="category-name">Electronics</span>
+                                    <span class="ml-2 text-xs text-gray-500 dark:text-gray-400">(45)</span>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 edit-category" title="Edit" data-id="1">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="text-red-400 hover:text-red-600 dark:hover:text-red-300 delete-category" title="Delete" data-id="1">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <ul class="nested ml-6">
+                                <li class="category-tree-item">
+                                    <div class="category-tree-content flex justify-between items-center py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-caret-right mr-2 toggle-icon"></i>
+                                            <span class="category-name">Smartphones</span>
+                                            <span class="ml-2 text-xs text-gray-500 dark:text-gray-400">(18)</span>
+                                        </div>
+                                        <div class="flex space-x-2">
+                                            <button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 edit-category" title="Edit" data-id="2">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-red-400 hover:text-red-600 dark:hover:text-red-300 delete-category" title="Delete" data-id="2">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <ul class="nested ml-6">
+                                        <li class="category-tree-item">
+                                            <div class="category-tree-content flex justify-between items-center py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                <div class="flex items-center">
+                                                    <span class="category-name">Android Phones</span>
+                                                    <span class="ml-2 text-xs text-gray-500 dark:text-gray-400">(12)</span>
+                                                </div>
+                                                <div class="flex space-x-2">
+                                                    <button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 edit-category" title="Edit" data-id="3">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="text-red-400 hover:text-red-600 dark:hover:text-red-300 delete-category" title="Delete" data-id="3">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="category-tree-item">
+                                            <div class="category-tree-content flex justify-between items-center py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                <div class="flex items-center">
+                                                    <span class="category-name">iOS Phones</span>
+                                                    <span class="ml-2 text-xs text-gray-500 dark:text-gray-400">(6)</span>
+                                                </div>
+                                                <div class="flex space-x-2">
+                                                    <button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 edit-category" title="Edit" data-id="4">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="text-red-400 hover:text-red-600 dark:hover:text-red-300 delete-category" title="Delete" data-id="4">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="category-tree-item">
+                                    <div class="category-tree-content flex justify-between items-center py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-caret-right mr-2 toggle-icon"></i>
+                                            <span class="category-name">Laptops & Computers</span>
+                                            <span class="ml-2 text-xs text-gray-500 dark:text-gray-400">(15)</span>
+                                        </div>
+                                        <div class="flex space-x-2">
+                                            <button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 edit-category" title="Edit" data-id="5">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-red-400 hover:text-red-600 dark:hover:text-red-300 delete-category" title="Delete" data-id="5">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <ul class="nested ml-6">
+                                        <li class="category-tree-item">
+                                            <div class="category-tree-content flex justify-between items-center py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                <div class="flex items-center">
+                                                    <span class="category-name">Laptops</span>
+                                                    <span class="ml-2 text-xs text-gray-500 dark:text-gray-400">(8)</span>
+                                                </div>
+                                                <div class="flex space-x-2">
+                                                    <button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 edit-category" title="Edit" data-id="6">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="text-red-400 hover:text-red-600 dark:hover:text-red-300 delete-category" title="Delete" data-id="6">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="category-tree-item">
+                                            <div class="category-tree-content flex justify-between items-center py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                <div class="flex items-center">
+                                                    <span class="category-name">Desktop Computers</span>
+                                                    <span class="ml-2 text-xs text-gray-500 dark:text-gray-400">(7)</span>
+                                                </div>
+                                                <div class="flex space-x-2">
+                                                    <button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 edit-category" title="Edit" data-id="7">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="text-red-400 hover:text-red-600 dark:hover:text-red-300 delete-category" title="Delete" data-id="7">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="category-tree-item">
+                                    <div class="category-tree-content flex justify-between items-center py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                                        <div class="flex items-center">
+                                            <span class="category-name">Audio & Headphones</span>
+                                            <span class="ml-2 text-xs text-gray-500 dark:text-gray-400">(12)</span>
+                                        </div>
+                                        <div class="flex space-x-2">
+                                            <button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 edit-category" title="Edit" data-id="8">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-red-400 hover:text-red-600 dark:hover:text-red-300 delete-category" title="Delete" data-id="8">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="category-tree-item">
+                            <div class="category-tree-content flex justify-between items-center py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <div class="flex items-center">
+                                    <i class="fas fa-caret-right mr-2 toggle-icon"></i>
+                                    <span class="category-name">Clothing</span>
+                                    <span class="ml-2 text-xs text-gray-500 dark:text-gray-400">(32)</span>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 edit-category" title="Edit" data-id="9">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="text-red-400 hover:text-red-600 dark:hover:text-red-300 delete-category" title="Delete" data-id="9">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <ul class="nested ml-6">
+                                <li class="category-tree-item">
+                                    <div class="category-tree-content flex justify-between items-center py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                                        <div class="flex items-center">
+                                            <span class="category-name">Men's Clothing</span>
+                                            <span class="ml-2 text-xs text-gray-500 dark:text-gray-400">(14)</span>
+                                        </div>
+                                        <div class="flex space-x-2">
+                                            <button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 edit-category" title="Edit" data-id="10">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-red-400 hover:text-red-600 dark:hover:text-red-300 delete-category" title="Delete" data-id="10">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="category-tree-item">
+                                    <div class="category-tree-content flex justify-between items-center py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                                        <div class="flex items-center">
+                                            <span class="category-name">Women's Clothing</span>
+                                            <span class="ml-2 text-xs text-gray-500 dark:text-gray-400">(18)</span>
+                                        </div>
+                                        <div class="flex space-x-2">
+                                            <button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 edit-category" title="Edit" data-id="11">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-red-400 hover:text-red-600 dark:hover:text-red-300 delete-category" title="Delete" data-id="11">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="category-tree-item">
+                            <div class="category-tree-content flex justify-between items-center py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <div class="flex items-center">
+                                    <i class="fas fa-caret-right mr-2 toggle-icon"></i>
+                                    <span class="category-name">Home & Garden</span>
+                                    <span class="ml-2 text-xs text-gray-500 dark:text-gray-400">(28)</span>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 edit-category" title="Edit" data-id="12">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="text-red-400 hover:text-red-600 dark:hover:text-red-300 delete-category" title="Delete" data-id="12">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <ul class="nested ml-6">
+                                <li class="category-tree-item">
+                                    <div class="category-tree-content flex justify-between items-center py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                                        <div class="flex items-center">
+                                            <span class="category-name">Furniture</span>
+                                            <span class="ml-2 text-xs text-gray-500 dark:text-gray-400">(15)</span>
+                                        </div>
+                                        <div class="flex space-x-2">
+                                            <button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 edit-category" title="Edit" data-id="13">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-red-400 hover:text-red-600 dark:hover:text-red-300 delete-category" title="Delete" data-id="13">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="category-tree-item">
+                                    <div class="category-tree-content flex justify-between items-center py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                                        <div class="flex items-center">
+                                            <span class="category-name">Kitchen & Dining</span>
+                                            <span class="ml-2 text-xs text-gray-500 dark:text-gray-400">(13)</span>
+                                        </div>
+                                        <div class="flex space-x-2">
+                                            <button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 edit-category" title="Edit" data-id="14">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-red-400 hover:text-red-600 dark:hover:text-red-300 delete-category" title="Delete" data-id="14">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="category-tree-item">
+                            <div class="category-tree-content flex justify-between items-center py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <div class="flex items-center">
+                                    <span class="category-name">Beauty & Personal Care</span>
+                                    <span class="ml-2 text-xs text-gray-500 dark:text-gray-400">(19)</span>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 edit-category" title="Edit" data-id="15">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="text-red-400 hover:text-red-600 dark:hover:text-red-300 delete-category" title="Delete" data-id="15">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Category Details Panel -->
+            <div class="col-span-1 lg:col-span-2">
+                <div class="card bg-white dark:bg-gray-800 rounded-lg shadow mb-6">
+                    <div class="p-4 border-b border-gray-200 dark:border-gray-700">
+                        <div class="flex justify-between items-center">
+                            <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Category Details</h2>
+                            <div>
+                                <button class="text-sm px-3 py-1 rounded-md bg-primary text-white" id="edit-category-detail-btn">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <div class="mb-6">
+                                    <h3 class="text-md font-semibold text-gray-700 dark:text-gray-300 mb-2">Basic Information</h3>
+                                    <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                                        <div class="mb-4">
+                                            <span class="block text-sm font-medium text-gray-500 dark:text-gray-400">Category ID</span>
+                                            <span class="block text-sm text-gray-800 dark:text-gray-200 mt-1" id="category-id">CAT001</span>
+                                        </div>
+                                        <div class="mb-4">
+                                            <span class="block text-sm font-medium text-gray-500 dark:text-gray-400">Name</span>
+                                            <span class="block text-sm text-gray-800 dark:text-gray-200 mt-1" id="category-name">Electronics</span>
+                                        </div>
+                                        <div class="mb-4">
+                                            <span class="block text-sm font-medium text-gray-500 dark:text-gray-400">Slug</span>
+                                            <span class="block text-sm text-gray-800 dark:text-gray-200 mt-1" id="category-slug">electronics</span>
+                                        </div>
+                                        <div class="mb-4">
+                                            <span class="block text-sm font-medium text-gray-500 dark:text-gray-400">Parent Category</span>
+                                            <span class="block text-sm text-gray-800 dark:text-gray-200 mt-1" id="category-parent">None</span>
+                                        </div>
+                                        <div class="mb-4">
+                                            <span class="block text-sm font-medium text-gray-500 dark:text-gray-400">Status</span>
+                                            <span class="block mt-1">
+                                                <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200" id="category-status">Active</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-md font-semibold text-gray-700 dark:text-gray-300 mb-2">SEO Information</h3>
+                                    <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                                        <div class="mb-4">
+                                            <span class="block text-sm font-medium text-gray-500 dark:text-gray-400">Meta Title</span>
+                                            <span class="block text-sm text-gray-800 dark:text-gray-200 mt-1" id="category-meta-title">Electronics - Online Store</span>
+                                        </div>
+                                        <div class="mb-4">
+                                            <span class="block text-sm font-medium text-gray-500 dark:text-gray-400">Meta Description</span>
+                                            <span class="block text-sm text-gray-800 dark:text-gray-200 mt-1" id="category-meta-description">Shop the latest electronics including smartphones, laptops, audio devices and more at great prices with fast shipping.</span>
+                                        </div>
+                                        <div class="mb-0">
+                                            <span class="block text-sm font-medium text-gray-500 dark:text-gray-400">Meta Keywords</span>
+                                            <span class="block text-sm text-gray-800 dark:text-gray-200 mt-1" id="category-meta-keywords">electronics, smartphones, laptops, headphones, tech</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="mb-6">
+                                    <h3 class="text-md font-semibold text-gray-700 dark:text-gray-300 mb-2">Category Image</h3>
+                                    <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 flex flex-col items-center">
+                                        <img src="https://via.placeholder.com/300x150?text=Electronics" alt="Category Image" class="w-full max-w-xs rounded-lg mb-3" id="category-image">
+                                        <div class="text-sm text-gray-500 dark:text-gray-400 mt-2">Image dimensions: 1200 x 600 px</div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-md font-semibold text-gray-700 dark:text-gray-300 mb-2">Statistics & Attributes</h3>
+                                    <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                                        <div class="mb-4">
+                                            <span class="block text-sm font-medium text-gray-500 dark:text-gray-400">Total Products</span>
+                                            <span class="block text-sm text-gray-800 dark:text-gray-200 mt-1" id="category-product-count">45 products</span>
+                                        </div>
+                                        <div class="mb-4">
+                                            <span class="block text-sm font-medium text-gray-500 dark:text-gray-400">Nested Categories</span>
+                                            <span class="block text-sm text-gray-800 dark:text-gray-200 mt-1" id="category-subcategory-count">3 subcategories</span>
+                                        </div>
+                                        <div class="mb-4">
+                                            <span class="block text-sm font-medium text-gray-500 dark:text-gray-400">Category Attributes</span>
+                                            <div class="mt-1" id="category-attributes">
+                                                <span class="inline-block px-2 py-1 text-xs rounded-md bg-gray-100 text-gray-700 dark:bg-gray-600 dark:text-gray-300 mr-1 mb-1">Brand</span>
+                                                <span class="inline-block px-2 py-1 text-xs rounded-md bg-gray-100 text-gray-700 dark:bg-gray-600 dark:text-gray-300 mr-1 mb-1">Model</span>
+                                                <span class="inline-block px-2 py-1 text-xs rounded-md bg-gray-100 text-gray-700 dark:bg-gray-600 dark:text-gray-300 mr-1 mb-1">Color</span>
+                                                <span class="inline-block px-2 py-1 text-xs rounded-md bg-gray-100 text-gray-700 dark:bg-gray-600 dark:text-gray-300 mr-1 mb-1">Size</span>
+                                                <span class="inline-block px-2 py-1 text-xs rounded-md bg-gray-100 text-gray-700 dark:bg-gray-600 dark:text-gray-300 mr-1 mb-1">Weight</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="block text-sm font-medium text-gray-500 dark:text-gray-400">Created Date</span>
+                                            <span class="block text-sm text-gray-800 dark:text-gray-200 mt-1" id="category-created-date">Jan 15, 2023</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Category Products -->
+                <div class="card bg-white dark:bg-gray-800 rounded-lg shadow">
+                    <div class="p-4 border-b border-gray-200 dark:border-gray-700">
+                        <div class="flex justify-between items-center">
+                            <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Products in this Category</h2>
+                            <a href="#" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">View All</a>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full">
+                            <thead>
+                                <tr class="bg-gray-50 dark:bg-gray-700">
+                                    <th class="text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Product</th>
+                                    <th class="text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">SKU</th>
+                                    <th class="text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Price</th>
+                                    <th class="text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Stock</th>
+                                    <th class="text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-750">
+                                    <td>
+                                        <div class="flex items-center">
+                                            <img src="https://via.placeholder.com/50" alt="Product" class="w-10 h-10 rounded object-cover mr-3">
+                                            <div class="text-sm font-medium text-gray-800 dark:text-gray-200">Wireless Bluetooth Earbuds</div>
+                                        </div>
+                                    </td>
+                                    <td class="text-sm text-gray-600 dark:text-gray-400">WBE-20B</td>
+                                    <td class="text-sm font-medium text-gray-800 dark:text-gray-200"><span class="currency-symbol">$</span>89.99</td>
+                                    <td class="text-sm text-gray-600 dark:text-gray-400">245</td>
+                                    <td>
+                                        <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Active</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-750">
+                                    <td>
+                                        <div class="flex items-center">
+                                            <img src="https://via.placeholder.com/50" alt="Product" class="w-10 h-10 rounded object-cover mr-3">
+                                            <div class="text-sm font-medium text-gray-800 dark:text-gray-200">Smart Watch Series 5</div>
+                                        </div>
+                                    </td>
+                                    <td class="text-sm text-gray-600 dark:text-gray-400">SW5-44S</td>
+                                    <td class="text-sm font-medium text-gray-800 dark:text-gray-200"><span class="currency-symbol">$</span>349.99</td>
+                                    <td class="text-sm text-gray-600 dark:text-gray-400">58</td>
+                                    <td>
+                                        <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Active</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-750">
+                                    <td>
+                                        <div class="flex items-center">
+                                            <img src="https://via.placeholder.com/50" alt="Product" class="w-10 h-10 rounded object-cover mr-3">
+                                            <div class="text-sm font-medium text-gray-800 dark:text-gray-200">Bluetooth Speaker</div>
+                                        </div>
+                                    </td>
+                                    <td class="text-sm text-gray-600 dark:text-gray-400">BS-100</td>
+                                    <td class="text-sm font-medium text-gray-800 dark:text-gray-200"><span class="currency-symbol">$</span>79.99</td>
+                                    <td class="text-sm text-gray-600 dark:text-gray-400">42</td>
+                                    <td>
+                                        <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Active</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Category Modal -->
+    <div class="modal" id="add-category-modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700">
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Add New Category</h2>
+                <button id="close-add-category-modal" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 focus:outline-none">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                            Category Name <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" id="new-category-name" placeholder="Enter category name" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                            Slug
+                        </label>
+                        <input type="text" id="new-category-slug" placeholder="Enter slug (or auto-generate from name)" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        Parent Category
+                    </label>
+                    <select id="new-category-parent" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-primary">
+                        <option value="">None (Top Level Category)</option>
+                        <option value="1">Electronics</option>
+                        <option value="2">Clothing</option>
+                        <option value="3">Home & Garden</option>
+                        <option value="4">Beauty & Personal Care</option>
+                    </select>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        Description
+                    </label>
+                    <textarea id="new-category-description" rows="3" placeholder="Enter category description" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                            Meta Title
+                        </label>
+                        <input type="text" id="new-category-meta-title" placeholder="SEO meta title" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                            Meta Keywords
+                        </label>
+                        <input type="text" id="new-category-meta-keywords" placeholder="Keywords separated by commas" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        Meta Description
+                    </label>
+                    <textarea id="new-category-meta-description" rows="2" placeholder="SEO meta description" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        Category Image
+                    </label>
+                    <div class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-4 text-center">
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-cloud-upload-alt text-gray-400 text-3xl mb-2"></i>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Drag and drop image here, or click to select file</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-500">Maximum file size: 2MB | Formats: JPG, PNG</p>
+                            <button class="mt-3 px-3 py-1 bg-primary text-white rounded-lg text-sm">
+                                Select File
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        Category Attributes
+                    </label>
+                    <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
+                        <div class="flex flex-wrap gap-2 mb-2" id="attribute-tags">
+                            <div class="flex items-center bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-1">
+                                <span class="text-sm">Brand</span>
+                                <button class="ml-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 remove-attribute">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="flex items-center bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-1">
+                                <span class="text-sm">Color</span>
+                                <button class="ml-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 remove-attribute">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="flex items-center bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-1">
+                                <span class="text-sm">Size</span>
+                                <button class="ml-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 remove-attribute">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <input type="text" id="new-attribute" placeholder="Add new attribute" class="flex-grow bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-700 rounded-lg rounded-r-none px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                            <button id="add-attribute-btn" class="bg-primary text-white rounded-lg rounded-l-none px-3 py-1 text-sm">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        Status
+                    </label>
+                    <div class="flex space-x-4">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="category-status" value="active" checked class="text-primary focus:ring-primary">
+                            <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">Active</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="category-status" value="inactive" class="text-primary focus:ring-primary">
+                            <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">Inactive</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 border-t border-gray-200 dark:border-gray-700 flex justify-end space-x-2">
+                <button id="cancel-add-category" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg">
+                    Cancel
+                </button>
+                <button id="save-category" class="px-4 py-2 bg-primary text-white rounded-lg">
+                    Save Category
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal" id="delete-confirmation-modal">
+        <div class="modal-content max-w-md">
+            <div class="p-4 text-center">
+                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100 dark:bg-red-900 mb-4">
+                    <i class="fas fa-exclamation-triangle text-red-600 dark:text-red-400 text-xl"></i>
+                </div>
+                <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">Delete Category</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">
+                    Are you sure you want to delete this category? This action cannot be undone and may affect associated products.
+                </p>
+                <div class="flex justify-center space-x-3">
+                    <button id="cancel-delete" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg">
+                        Cancel
+                    </button>
+                    <button id="confirm-delete" class="px-4 py-2 bg-red-600 text-white rounded-lg">
+                        Yes, Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast-notification">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle mr-2"></i>
+            <span id="toast-message">Operation completed successfully!</span>
+        </div>
+    </div>
+
+    <script src="category-pg.js"></script>
+</body>
+</html>

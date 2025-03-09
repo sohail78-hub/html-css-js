@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P-Bazar</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lateef&family=Noto+Nastaliq+Urdu&family=Amiri&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            /* font-family: Arial, sans-serif; */
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* width: 100%; */
+            gap: 6rem;
+            background: linear-gradient(to right, #ff9800, #ff5722);
+            padding: 15px;
+            color: white;
+            /* border: 3px solid blue; */
+
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: linear-gradient(to right, #ff9800, #ff5722);
+            /* border: 1px solid red; */
+            /* gap: 2rem; */
+            margin: 0 2rem;
+        }
+
+        .logo-img {
+            max-height: 50px;
+            /* border: 1px solid white; */
+        }
+
+        .navbar-icons {
+            display: flex;
+            justify-content: right;
+            gap: 12px;
+            /* margin-right: 1rem; */
+            font-size: 13px;
+            font-weight: bold;
+            /* border: 1px solid rgb(1, 216, 37); */
+            /* align-items: center; */
+        }
+
+        .navbar-icons img {
+            max-height: 20px;
+            cursor: pointer;
+            /* border: 1px solid blue; */
+        }
+
+        .nav-menu-ul {
+            display: flex;
+            list-style-type: none;
+            gap: 2rem;
+            color: black;
+            /* font-size: 15px; */
+            font-weight: bold;
+        }
+
+        .nav-menu-ul li {
+            display: flex;
+            /* text-decoration: none; */
+            justify-items: center;
+            /* border: 1px solid black; */
+            padding: 5px;
+            /* background-image: radial-gradient(rgb(219, 169, 169), rgb(110, 47, 4)); */
+        }
+
+        .menu-parent {
+            display: flex;
+            justify-content: end;
+            /* border: 1px solid rgb(102, 6, 73); */
+            gap: 1rem;
+        }
+
+        .menus {
+            display: flex;
+            /* justify-content: end; */
+            flex-direction: column;
+            /* gap: 10px; */
+            /* border: 1px solid red; */
+        }
+
+        .language-container {
+            /* margin-left: auto; */
+            /* display: flex; */
+            justify-content: center;
+            align-content: center;
+            /* border: 1px solid wheat; */
+        }
+
+        select {
+            padding: 0.5em 0.5em;
+            background-color: #f08463;
+            border-radius: 20px;
+            border-color: #fddaa6;
+            color: white;
+        }
+
+        .nav-menus {
+            display: flex;
+            text-decoration: none;
+            list-style-type: none;
+        }
+
+        .urdu-menu {
+            font-family: 'Amiri', serif !important;
+        }
+
+        .slider-container {
+            width: 100%;
+            overflow: hidden;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .slider-container h2 {
+            text-align: center;
+        }
+
+        .slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 10px;
+            width: 100%;
+            justify-content: flex-start;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            flex: 0 0 auto;
+            width: 180px;
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            max-height: 150px;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 5px 0px;
+            margin-top: auto;
+            /* padding: 5px 0; */
+            background-color: rgb(236, 229, 229);
+        }
+
+        .prodcut-info p {
+            display: flex;
+
+        }
+
+        .category-container {
+            display: grid;
+            justify-self: center;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1rem;
+            margin: 1rem;
+            width: calc(90% - 40px);
+        }
+
+        .category-card {
+            display: flex;
+            flex-direction: column;
+            flex: 0 0 auto;
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            cursor: pointer;
+            width: 90%;
+        }
+
+
+        .category-card img {
+            width: 100%;
+            height: auto;
+            max-height: 150px;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+
+        .category-info {
+            margin-bottom: auto;
+            padding: 5px 0;
+        }
+
+        #footer-text {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 1rem;
+            padding: 10px 0px;
+        }
+
+        #slider-sales-title,
+        #slider-arrivals-title,
+        #slider-justforyou-title {
+            color: brown;
+            font-size: 2rem;
+            text-shadow: 1px 1px 3px rgb(70, 66, 66);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <img class="logo-img" src="./logos/Artboard 1.png" alt="P-Bazar Logo">
+
+            <div class="menu-parent">
+                <div class="menus">
+
+                    <div class="navbar-icons">
+                        <img src="./icons/search-icon.png" alt="Search">
+                        <img src="./icons/cart-icon.png" alt="Cart">
+                        <img src="./icons/login-icon.png" alt="Login">
+                    </div>
+
+
+                    <nav class="nav-menus">
+                        <ul class="nav-menu-ul" id="menu-list">
+                            <li id="menu-home">Home</li>
+                            <li id="menu-shop">Shop</li>
+                            <li id="menu-categories">Categories</li>
+                            <li id="menu-about">About Us</li>
+                            <li id="menu-contact">Contact</li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="language-container">
+                    <select id="language-select">
+                        <option value="en">English</option>
+                        <option value="ur">اردو</option>
+                        <option value="sd">سنڌي</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="category-container" id="categories"></div>
+
+    <div class="slider-container">
+        <h2 id="slider-sales-title">On Sales Now</h2>
+        <div class="slider" id="sales-products"></div>
+    </div>
+
+    <div class="slider-container">
+        <h2 id="slider-arrivals-title">New Arrivals</h2>
+        <div class="slider" id="arrivals-products"></div>
+    </div>
+
+    <div class="slider-container">
+        <h2 id="slider-justforyou-title">Just for You</h2>
+        <div class="slider" id="justforyou-products"></div>
+    </div>
+
+    <footer>
+        <p id="footer-text"></p>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                currency: 'Rs.',
+                home: "Home",
+                shop: "Shop",
+                categories: "Categories",
+                about: "About Us",
+                contact: "Contact",
+                sales: "On Sales Now",
+                arrivals: "New Arrivals",
+                justForYou: "Just for You",
+                footer: "&copy; 2025 P-Bazar. All rights reserved.",
+                font: "Arial, sans-serif",
+                menuFontSize: "16px",
+                sliderTitleFontSize: "24px",
+                categoryFontSize: "18px",
+                productFontSize: "14px",
+                footerFontSize: "18px",
+                // footerFontSize : categoryFontSize (not possible in object variable thats why we are using following)
+                get footerFontSize() {
+                    return this.categoryFontSize;
+                }
+
+            },
+
+            ur: {
+                currency: 'روپے',
+                home: "ہوم",
+                shop: "خریداری",
+                categories: "اقسام",
+                about: "ہمارے بارے میں",
+                contact: "رابطہ کریں",
+                sales: "ابھی فروخت پر",
+                arrivals: "نئی آمد",
+                justForYou: "صرف آپ کے لئے",
+                footer: "&copy; 2025 پی بازار. جملہ حقوق محفوظ ہیں۔",
+                font: "'Noto Nastaliq Urdu', serif",
+                menuFontSize: "16px",
+                sliderTitleFontSize: "26px",
+                categoryFontSize: "20px",
+                productFontSize: "15px",
+                // footerFontSize : categoryFontSize (not possible in object variable thats why we are using following)
+                get footerFontSize() {
+                    return this.categoryFontSize;
+                }
+            },
+            sd: {
+                currency: 'روپيا',
+                home: "ھوم",
+                shop: "خريداري",
+                categories: "زمرا",
+                about: "اسان بابت",
+                contact: "رابطي ڪريو",
+                sales: "سيل تي",
+                arrivals: "نئون پهچ",
+                justForYou: "صرف توهان لاءِ",
+                footer: "&copy; 2025 پي بازار. سڀ حق محفوظ آھن.",
+                font: "'Lateef', serif",
+                menuFontSize: "26px",
+                sliderTitleFontSize: "40px",
+                categoryFontSize: "30px",
+                productFontSize: "24px",
+                // footerFontSize : categoryFontSize (not possible in object variable thats why we are using following)
+                get footerFontSize() {
+                    return this.categoryFontSize;
+                }
+
+            }
+        };
+
+        const categoryData = [
+            { key: 'electronics', en: 'Electronics', ur: 'الیکٹرانکس', sd: 'اليڪٽرانڪس' },
+            { key: 'fashion', en: 'Fashion', ur: 'فیشن', sd: 'فئشن' },
+            { key: 'home', en: 'Home', ur: 'گھر', sd: 'گهر' },
+            { key: 'sports', en: 'Sports', ur: 'کھیل', sd: 'راند' },
+            { key: 'books', en: 'Books', ur: 'کتابیں', sd: 'ڪتاب' },
+            { key: 'toys', en: 'Toys', ur: 'کھلونے', sd: 'رانديڪا' },
+            { key: 'beauty', en: 'Beauty', ur: 'خوبصورتی', sd: 'خوبصورتي' },
+            { key: 'auto', en: 'Auto', ur: 'آٹو', sd: 'آٽو' },
+            { key: 'kitchen', en: 'Kitchen', ur: 'کچن', sd: 'ڪچن' },
+            { key: 'garden', en: 'Garden', ur: 'باغ', sd: 'باغ' },
+            { key: 'health', en: 'Health', ur: 'صحت', sd: 'صحت' },
+            { key: 'furniture', en: 'Furniture', ur: 'فرنیچر', sd: 'فرنيچر' }
+        ];
+
+        const productData = [
+            { id: 1, en: 'Johnson Shampoo', ur: 'جانسن شیمپو', sd: 'جانسن شامپو' },
+            { id: 2, en: 'Water Can', ur: 'پانی کا کین', sd: 'پاڻي جو ڪين' },
+            { id: 3, en: 'Entamizol DS Tablet', ur: 'انٹامیزول ڈی ایس ٹیبلٹ', sd: 'اينٽاميزول ڊي ايس ٽيبلٽ' },
+            { id: 4, en: 'Knives', ur: 'چاقو', sd: 'چاقو' },
+            { id: 5, en: 'Cricket Bat', ur: 'کرکٹ بیٹ', sd: 'ڪرڪيٽ بيٽ' },
+            { id: 6, en: 'Lipstick', ur: 'لپ اسٹک', sd: 'لپ اسٽڪ' },
+            { id: 7, en: 'MotorBike', ur: 'موٹر بائیک', sd: 'موٽر بائيڪ' },
+            { id: 8, en: 'Table Lamp', ur: 'ٹیبل لیمپ', sd: 'ٽيبل ليمپ' },
+            { id: 9, en: 'Toy Car', ur: 'کھلونا کار', sd: 'رانديڪو ڪار' },
+            { id: 10, en: 'Office Chair', ur: 'دفتر کی کرسی', sd: 'آفيس ڪرسي' }
+        ];
+
+        function generateProducts(containerId, currency, lang) {
+            let container = document.getElementById(containerId);
+            container.innerHTML = '';
+            productData.forEach(product => {
+                let productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <img src='product-images/product${product.id}.jpg' alt='${product[lang]}' onerror="this.src='product-images/default.jpg'">
+                    <div class='product-info'>
+                        <span>${product[lang]}</span>
+                        <span>${currency} ${(Math.floor(Math.random() * 5000) + 500).toLocaleString()}</span>
+                    </div>
+                `;
+                container.appendChild(productCard);
+            });
+        }
+
+        function generateCategories(lang) {
+            let container = document.getElementById('categories');
+            container.innerHTML = '';
+            categoryData.forEach(category => {
+                let categoryCard = document.createElement('div');
+                categoryCard.className = 'category-card';
+                categoryCard.innerHTML = `
+                    <div class='category-info'>
+                        <p>${category[lang]}</p>
+                    </div>
+                     <img src='category-images/${category.key}.jpg' alt='${category[lang]}' onerror="this.src='product-images/default.jpg'">
+                `;
+                container.appendChild(categoryCard);
+            });
+        }
+
+        // It will update the font and its sizes according to language
+        function updateFontStyle(lang) {
+            document.body.style.fontFamily = translations[lang].font;
+
+            // ✅ Menu Font Size
+            document.getElementById('menu-list').style.fontSize = translations[lang].menuFontSize;
+            // document.querySelectorAll('#menu-list li').forEach(el => {
+            //     el.style.fontSize = translations[lang].menuFontSize;
+            // });
+
+            // Footer fontsize
+            document.getElementById('footer-text').style.fontSize = translations[lang].footerFontSize;
+
+            // ✅ Category Section Font Size
+            document.getElementById('categories').style.fontSize = translations[lang].categoryFontSize;
+
+            // ✅ Slider Titles Font Size
+            document.getElementById('slider-sales-title').style.fontSize = translations[lang].sliderTitleFontSize;
+            document.getElementById('slider-arrivals-title').style.fontSize = translations[lang].sliderTitleFontSize;
+            document.getElementById('slider-justforyou-title').style.fontSize = translations[lang].sliderTitleFontSize;
+
+            // ✅ Product Cards Font Size
+            document.querySelectorAll('.product-card').forEach(el => {
+                el.style.fontSize = translations[lang].productFontSize;
+            });
+        }
+
+        function updateUI(lang) {
+            // Menu
+            document.getElementById('menu-home').innerText = translations[lang].home;
+            document.getElementById('menu-shop').innerText = translations[lang].shop;
+            document.getElementById('menu-categories').innerText = translations[lang].categories;
+            document.getElementById('menu-about').innerText = translations[lang].about;
+            document.getElementById('menu-contact').innerText = translations[lang].contact;
+
+            // Product Slider
+            document.getElementById('slider-sales-title').innerText = translations[lang].sales;
+            document.getElementById('slider-arrivals-title').innerText = translations[lang].arrivals;
+            document.getElementById('slider-justforyou-title').innerText = translations[lang].justForYou;
+
+            /// 2nd Product slider
+            generateProducts('sales-products', translations[lang].currency, lang);
+            generateProducts('arrivals-products', translations[lang].currency, lang);
+            generateProducts('justforyou-products', translations[lang].currency, lang);
+
+            // Footer
+            document.getElementById('footer-text').innerHTML = translations[lang].footer;
+            document.body.style.fontFamily = translations[lang].font;
+            document.body.style.fontSize = translations[lang].footerFontSize;
+        }
+        // ()=> will not work with select thats why we use event, and use event.target.value
+        document.getElementById('language-select').addEventListener('change', (event) => {
+            const lang = event.target.value; // Correct way in arrow function
+            updateUI(lang);
+            generateCategories(lang);
+            updateFontStyle(lang);
+        });
+
+        // in Regular function Select will work, than we can use this.value
+        // document.getElementById('language-select').addEventListener('change', function () {
+        //     const lang = this.value;
+        //     updateUI(lang);
+        //     generateCategories(lang);
+        // });
+
+        window.onload = function () {
+            updateUI('en');
+            generateCategories('en');
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timeOut | Interval functions</title>
+</head>
+
+<body>
+<h2> Code Area </h2>
+<button id="stop"> Stop </button>
+    
+</body>
+<script>
+// All following function are windows object function, not JS function
+//         setTimeout();
+//         setInterval();
+//         clearInterval();
+//         clearTimeout();
+
+// setTimeout() method need handler inside ()
+// Handler always take reference like variable name not function execusion
+// setTimeout() will wait till the time we provided.
+
+// setTimeout(function(){
+//     console.log("Sohail"); // Print name after 2s
+// },2000) // 2000ms (2s) time
+
+//or
+// let saySohail = function(){
+//     console.log("Sohail");
+// };
+
+// setTimeout(saySohail,2000) // variable reference execute after 2000ms (2s) time
+
+// To change h2 text after 2 sec
+
+let changeh2 = function(){
+    document.querySelector('h2').innerHTML = "New Code Area";
+}
+
+setTimeout(changeh2,3000); 
+// setTimeout must be clear because it will remain in JS stack
+// Need to put this "cahngeh2" in clearTimeout handler. 
+
+
+
+// clearTimeout best practice is to stop by eventListners(),
+// first we put this function in variable & we clear the timeout by button
+const changeMe = setTimeout(changeh2,2000);
+
+document.querySelector('#stop')/addEventListener('click',function(){
+    clearTimeout(changeMe);
+    console.log("Stopped");
+})
+
+
+</script>
+</html>
