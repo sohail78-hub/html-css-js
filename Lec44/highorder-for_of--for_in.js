@@ -8,7 +8,7 @@
 // For Of Loop (For of Loops use for Arrays & Map Objects for iteration, it will not wrok with Objects)
 // let mand = [1,2,3,4,5,6]
 
-// for (const num of mand) {   // it will make a loop of mand variable as per the total size 
+// for (const num of mand) {   // it will make a loop of mand instance as per the total size 
 //                             // and each element will be store in num
 //    console.log(num);
 // };

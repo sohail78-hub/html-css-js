@@ -14,7 +14,8 @@
 - can make Service
 
 ## Parts of OOP
-- Object literal
+- Object literal (Object properites, length)
+
 - Construction Function
 - Prototypes
 - Instances (new, this)

@@ -6,7 +6,7 @@
 const coding = ["JavaScript", "Python", "Visual Basic", "HTML", "CSS","PHP"];
 
 // coding.forEach( function (ads) { // no need to put function name
-//     // console.log(ads); // it will print each value of "Coding" Array
+//     console.log(ads); // it will print each value of "Coding" Array
 // }); 
 // // OR
 
@@ -20,7 +20,7 @@ const coding = ["JavaScript", "Python", "Visual Basic", "HTML", "CSS","PHP"];
 //     console.log(item);
 // }
 
-// coding.forEach(printme); // put "Printme" function in loop
+// coding.forEach(printme); // coding Array name & put "Printme" function in loop
 
 
 // +++++++++++++++++++++ Other Parameters"forEach method"
